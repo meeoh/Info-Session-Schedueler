@@ -23,5 +23,6 @@ if __name__ == "__main__":
     	# hit waterloo api and find course
 
     	# give options for what time/day they take it at
-    	# global 2d array of classes (array[0] is sunday, then each tuple in
-    	# array[0] has 2 elements, start time and end time)
+    	'''' global 2d array of classes (array[0] is sunday, then each tuple in
+    	 array[0] has 2 elements, start time and end time which represents an individual
+         class)'''
