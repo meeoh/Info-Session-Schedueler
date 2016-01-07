@@ -110,9 +110,24 @@ while i <= 5:
 #print enteredCourses
 #print "TEST"
 #print finalDates[1][0][0]
-for index,elm in finalDates:
-    finalDates[index] = sorted(elm, key=lambda x: x[0])
-print finalDates
+for elm in finalDates:
+    elm.sort(key=lambda x:x[0])
+
+f = open('sched.txt', 'w')
+for index,elm in enumerate(finalDates):
+    if index == 0:
+        f.write("MONDAY\n")
+    elif index == 2:
+        f.write("TUESDAY\n")
+    elif index == 3:
+        f.write("WEDNESDAY\n")
+    elif index == 4:
+        f.write("THURDSAY\n")
+    elif index == 5:
+        f.write("FRIDAY\n")    
+    for pair in elm:
+        f.write(pair[0] + " " + pair[1] + "\n")
+
 
 #finalDates = sorted(finalDates, key=lambda x: x[0])
 
