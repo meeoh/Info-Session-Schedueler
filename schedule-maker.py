@@ -26,6 +26,7 @@ def getCourse():
 #assuming 5 courses, loops 0-4
 i = 1
 enteredCourses = []
+finalDates = [[] for x in range(5)]
 while i <= 5:
         print "Enter name for Course #%d (e.g CS 350)" % (i)
 
@@ -51,16 +52,50 @@ while i <= 5:
         i = i + 1
         
         #LISTS ALL PROFS FOR THE COURSE
+        index = 1
         for section in classes:
             currentSection = section
-            currentSection = currentSection['classes'][0]
-            #print currentSection
+            currentSection = currentSection['classes'][0]            
             startTime = currentSection["date"]["start_time"]
             endTime = currentSection["date"]["end_time"]
-            if currentSection['instructors']:
+            days = currentSection["date"]["weekdays"]
+            if currentSection['instructors']:                
                 #ALL PROFS HERE WITH TIME ALL SECTIONS INCLUDED
                 currentSection = currentSection['instructors'][0]
-                print currentSection + " " + startTime + " " + endTime
+                print  str(index) + ": " + currentSection + " " + startTime + " " + endTime + " " + days
+                index = index + 1
+
+        #need to error check this choice
+        choice = int(raw_input())
+
+        query_index = 1
+        for section in classes:
+            currentSection = section
+            currentSection = currentSection['classes'][0]            
+            startTime = currentSection["date"]["start_time"]
+            endTime = currentSection["date"]["end_time"]
+            days = currentSection["date"]["weekdays"]
+            if currentSection['instructors'] and query_index == choice:                
+                #ALL PROFS HERE WITH TIME ALL SECTIONS INCLUDED
+                while len(days) > 0:
+                    if "M" in days:
+                        finalDates[0].append((startTime,endTime))
+                        days = days.replace("M","")                    
+                    elif "Th" in days:
+                        finalDates[3].append((startTime,endTime))
+                        days = days.replace("Th","")
+                    elif "T" in days:
+                        finalDates[1].append((startTime,endTime))
+                        days = days.replace("T","")       
+                    elif "F" in days :
+                        finalDates[4].append((startTime,endTime))
+                        days = days.replace("F","")
+                    elif "W" in days:
+                        finalDates[2].append((startTime,endTime))
+                        days = days.replace("W","")
+            
+            query_index = query_index + 1
+        print finalDates
 
         #COURSE EXISTS AT THIS POINT 
 
