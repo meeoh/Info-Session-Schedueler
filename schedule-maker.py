@@ -95,7 +95,8 @@ while i <= 5:
                         days = days.replace("W","")
             
             query_index = query_index + 1
-        print finalDates
+        #print finalDates
+
 
         #COURSE EXISTS AT THIS POINT 
 
@@ -106,4 +107,12 @@ while i <= 5:
         array[0] has 2 elements, start time and end time which represents an individual
         class)'''
 
-print enteredCourses
+#print enteredCourses
+#print "TEST"
+#print finalDates[1][0][0]
+for index,elm in finalDates:
+    finalDates[index] = sorted(elm, key=lambda x: x[0])
+print finalDates
+
+#finalDates = sorted(finalDates, key=lambda x: x[0])
+
