@@ -117,13 +117,13 @@ f = open('sched.txt', 'w')
 for index,elm in enumerate(finalDates):
     if index == 0:
         f.write("MONDAY\n")
-    elif index == 2:
+    elif index == 1:
         f.write("TUESDAY\n")
-    elif index == 3:
+    elif index == 2:
         f.write("WEDNESDAY\n")
+    elif index == 3:
+        f.write("THURSDAY\n")
     elif index == 4:
-        f.write("THURDSAY\n")
-    elif index == 5:
         f.write("FRIDAY\n")    
     for pair in elm:
         f.write(pair[0] + " " + pair[1] + "\n")
