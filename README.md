@@ -4,7 +4,7 @@ The goal of this project is to be able to ask the student on a daily basis which
 
 TODO: <br>
 
-1. Get the students schedule
+1. Get the students schedule :white_check_mark:
 2. Store it somewhere (maybe)
 3. Get the info sessions for the day
 4. Check which oens are appropriate
