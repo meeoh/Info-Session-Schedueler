@@ -17,10 +17,14 @@ todaysDate = time.strftime("%B ") + str(day) + time.strftime(", %Y")
 
 
 for event in uw.infosessions():	
-	if event["date"] == todaysDate:					
+	if "CANCELLED" in event["employer"].upper():
+		continue
+	if event["date"] == todaysDate:		
+		print event
+			
 		event["start_time"] = time.strftime("%H:%M", time.strptime(event["start_time"], "%I:%M %p"))
 		event["end_time"] = time.strftime("%H:%M", time.strptime(event["end_time"], "%I:%M %p"))
-		todays_sessions.append((event["employer"], event["start_time"], event["end_time"]))
+		todays_sessions.append((event["employer"], event["start_time"], event["end_time"], event["id"]))
 
 
 todays_sessions.sort(key=lambda x: x[1])
@@ -49,6 +53,13 @@ if today_as_int > 4:
 	today_as_int = 0
 
 todays_sched = sched[datetime.datetime.today().weekday()]
+print "TODAYS CLASSES"
+print "---------------"
+print todays_sched
+
+for index, session in enumerate(todays_sessions):
+	print index
+	print session
 
 # for session in todays_sessions:
 # 	for classTime in todays_sched:
