@@ -4,9 +4,9 @@ The goal of this project is to be able to ask the student on a daily basis which
 
 TODO: <br>
 
-1. Get the students schedule
-2. Store it somewhere (maybe)
-3. Get the info sessions for the day
-4. Check which oens are appropriate
+1. Get the students schedule :white_check_mark:
+2. Store it somewhere (maybe) :white_check_mark:
+3. Get the info sessions for the day :white_check_mark:
+4. Check which oens are appropriate 
 5. Ask the student (currently via telegram, can be texting via twilio or email) if they would like to participate
 6. Enroll them if they say yes, ignore if no
