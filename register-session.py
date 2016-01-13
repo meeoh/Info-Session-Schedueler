@@ -19,9 +19,7 @@ todaysDate = time.strftime("%B ") + str(day) + time.strftime(", %Y")
 for event in uw.infosessions():	
 	if "CANCELLED" in event["employer"].upper():
 		continue
-	if event["date"] == todaysDate:		
-		print event
-			
+	if event["date"] == todaysDate:						
 		event["start_time"] = time.strftime("%H:%M", time.strptime(event["start_time"], "%I:%M %p"))
 		event["end_time"] = time.strftime("%H:%M", time.strptime(event["end_time"], "%I:%M %p"))
 		todays_sessions.append((event["employer"], event["start_time"], event["end_time"], event["id"]))
@@ -56,14 +54,17 @@ todays_sched = sched[datetime.datetime.today().weekday()]
 print "TODAYS CLASSES"
 print "---------------"
 print todays_sched
+print "\n"
 
-for index, session in enumerate(todays_sessions):
-	print index
-	print session
 
-# for session in todays_sessions:
-# 	for classTime in todays_sched:
-# 		if session[1] < classTime[0]:
+for index,session in enumerate(todays_sessions):
+	for classIndex,classTime in enumerate(todays_sched):
+ 		if session[1] < classTime[0]:
+ 			print "STARTS BEFORE CLASS: " + str(classIndex)
+ 			print session[0] + " starts at: " + session[1] + " and ends at " + session[2] + "."
+ 			print "\n"
+ 			break
+
 			
 
 
