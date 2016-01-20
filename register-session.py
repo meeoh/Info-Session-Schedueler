@@ -77,7 +77,7 @@ weekday = time.strftime("%A").upper()
 
 sched = [[] for x in range(5)]
 
-f = open('sched.txt', 'r')
+f = open('/home/pi/Info-Session-Schedueler/sched.txt', 'r')
 
 currentDay = -1
 for line in f:
@@ -102,10 +102,6 @@ message = ""
 
 for session in todays_sessions:
 	message = message + session[0] + " at " + session[1] + " ends at " + session[2] + "\n"
-
-print "TESTING"
-print message
-
 
 botMessage(message)
 

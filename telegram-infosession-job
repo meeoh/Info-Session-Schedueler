@@ -1,0 +1,3 @@
+* 20 * * * pi /usr/bin/python /home/pi/Info-Session-Schedueler/register-session.py
+
+
