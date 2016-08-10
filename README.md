@@ -12,6 +12,6 @@ TODO: <br>
 6. Enroll them if they say yes, ignore if no
 
 ## Usage
-Run `pip install -r requirements.txt` to install the proper dependencies
-Then run python schedule-maker.py and follow the instructions
-Finally, put register-session.py in /etc/cron.d/ and modify it for your appropriate time
+Run `pip install -r requirements.txt` to install the proper dependencies<br>
+Then run python schedule-maker.py and follow the instructions<br>
+Finally, put register-session.py in /etc/cron.d/ and modify it for your appropriate time<br>
