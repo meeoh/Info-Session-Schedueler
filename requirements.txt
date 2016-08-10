@@ -1,0 +1,3 @@
+uwaterlooapi
+requests
+telegram
