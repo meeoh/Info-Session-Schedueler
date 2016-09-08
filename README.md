@@ -10,3 +10,13 @@ TODO: <br>
 4. Check which oens are appropriate 
 5. Ask the student (currently via telegram, can be texting via twilio or email) if they would like to participate
 6. Enroll them if they say yes, ignore if no
+
+## Usage
+Create a telegram bot and get the bot http access key<br>
+Set the api keys in apikeys.py<br>
+Run `pip install -r requirements.txt` to install the proper dependencies<br>
+Then run python schedule-maker.py and follow the instructions<br>
+Find your chat id with the bot by running `find_id.py` and messaging the bot<br>
+Set your chat id on line 45 of `register-session.py`<br>
+Set the location of sched.txt (created from `schedule-maker.py`) on line 83 of `register-session.py`<br>
+Finally, put register-session.py in /etc/cron.d/ and modify it for your appropriate time<br>

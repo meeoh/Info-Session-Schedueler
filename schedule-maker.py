@@ -1,10 +1,9 @@
 import requests
+import sys
+from apikeys import getUWApiKey
 from uwaterlooapi import UWaterlooAPI
 
-API_KEY = "36802f2c7eab5943ece0bcf8eec07d5a"
-uw = UWaterlooAPI(api_key=API_KEY)
-
-print(uw.course_schedule("MAasTH","135"))
+uw = UWaterlooAPI(api_key=getUWApiKey())
 
 #classes = uw.courses("MAdsfdsfsTH")
 

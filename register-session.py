@@ -2,6 +2,8 @@ import requests
 import time
 import datetime
 from uwaterlooapi import UWaterlooAPI
+import apikeys
+import sys
 import logging
 import telegram
 from time import sleep
@@ -13,7 +15,7 @@ except ImportError:
 
 def botMessage(message):
     # Telegram Bot Authorization Token
-    bot = telegram.Bot("196910141:AAHUtQt2J_n5BNJkrStLocNpFNUKhszySlk")
+    bot = telegram.Bot(apikeys.getTelegramBotKey())
 
     # get the first pending update_id, this is so we can skip over it in case
     # we get an "Unauthorized" exception.
@@ -40,12 +42,12 @@ def botMessage(message):
 
 
 def echo(bot, update_id, message):
-    bot.sendMessage(chat_id=130724919,text=message)
+    bot.sendMessage(chat_id="130724919",text=message)
     return update_id
 
 
 
-API_KEY = "36802f2c7eab5943ece0bcf8eec07d5a"
+API_KEY = apikeys.getUWApiKey()
 uw = UWaterlooAPI(api_key=API_KEY)
 
 
@@ -77,8 +79,8 @@ weekday = time.strftime("%A").upper()
 
 sched = [[] for x in range(5)]
 
+#put the location of sched.txt here
 f = open('/home/pi/Info-Session-Schedueler/sched.txt', 'r')
-
 currentDay = -1
 for line in f:
 	if "DAY" in line:
