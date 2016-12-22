@@ -13,6 +13,8 @@ try:
 except ImportError:
     from urllib2 import URLError  # python 2
 
+telegramChatId = 130724919 
+
 def botMessage(message):
     # Telegram Bot Authorization Token
     bot = telegram.Bot(apikeys.getTelegramBotKey())
@@ -42,7 +44,10 @@ def botMessage(message):
 
 
 def echo(bot, update_id, message):
-    bot.sendMessage(chat_id="130724919",text=message)
+    if message:
+        bot.sendMessage(chat_id=telegramChatId,text=message)
+    else:
+        bot.sendMessage(chat_id=telegramChatId,text="No sessions today")
     return update_id
 
 
