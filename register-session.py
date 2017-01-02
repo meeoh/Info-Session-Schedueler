@@ -74,6 +74,7 @@ for event in uw.infosessions():
 		todays_sessions.append((event["employer"], event["start_time"], event["end_time"], event["id"]))
 
 
+'''
 todays_sessions.sort(key=lambda x: x[1])
 print "TODAYS SESSIONS"
 print "---------------"
@@ -104,6 +105,7 @@ print "TODAYS CLASSES"
 print "---------------"
 print todays_sched
 print "\n"
+'''
 
 message = ""
 
