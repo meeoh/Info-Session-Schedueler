@@ -11,6 +11,7 @@ TODO: <br>
 2. Store it somewhere (maybe) :white_check_mark:
 3. Get the info sessions for the day :white_check_mark:
 4. Tell the student the info sessions and timing :white_check_mark:
+
 ~~4. Check which ones are appropriate ~~
 ~~5. Ask the student (currently via telegram, can be texting via twilio or email) if they would like to participate~~
 ~~6. Enroll them if they say yes, ignore if no~~
