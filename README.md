@@ -24,4 +24,4 @@ Run `pip install -r requirements.txt` to install the proper dependencies<br>
 Find your chat id with the bot by running `find_id.py` and messaging the bot<br>
 Set your chat id on line 16 of `register-session.py`<br>
 ~~Set the location of sched.txt (created from `schedule-maker.py`) on line 83 of `register-session.py`<br>~~
-Finally, put register-session.py in /etc/cron.d/ and modify it for your appropriate time<br>
+Finally, run 'crontab -e' and create the appropriate job to run register-session.py at your preferred time
