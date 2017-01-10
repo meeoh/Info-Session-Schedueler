@@ -13,7 +13,8 @@ try:
 except ImportError:
     from urllib2 import URLError  # python 2
 
-telegramChatId = 130724919 
+telegramChatId = 130724919
+
 
 def botMessage(message):
     # Telegram Bot Authorization Token
@@ -29,9 +30,8 @@ def botMessage(message):
     logging.basicConfig(
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-
     try:
-        update_id = echo(bot, update_id,message)
+        update_id = echo(bot, update_id, message)
     except telegram.TelegramError as e:
         # These are network problems with Telegram.
         if e.message in ("Bad Gateway", "Timed out"):
@@ -45,11 +45,10 @@ def botMessage(message):
 
 def echo(bot, update_id, message):
     if message:
-        bot.sendMessage(chat_id=telegramChatId,text=message)
+        bot.sendMessage(chat_id=telegramChatId, text=message)
     else:
-        bot.sendMessage(chat_id=telegramChatId,text="No sessions today")
+        bot.sendMessage(chat_id=telegramChatId, text="No sessions today")
     return update_id
-
 
 
 API_KEY = apikeys.getUWApiKey()
@@ -59,19 +58,17 @@ uw = UWaterlooAPI(api_key=API_KEY)
 todays_sessions = []
 
 
-
 day = int(time.strftime("%d"))
 
-todaysDate = time.strftime("%B ") + str(day) + time.strftime(", %Y")
+todaysDate = time.strftime("%Y") + time.strftime("-%m-") + str(day)
 
 
-for event in uw.infosessions():	
-	if "CANCELLED" in event["employer"].upper():
-		continue
-	if event["date"] == todaysDate:						
-		event["start_time"] = time.strftime("%H:%M", time.strptime(event["start_time"], "%I:%M %p"))
-		event["end_time"] = time.strftime("%H:%M", time.strptime(event["end_time"], "%I:%M %p"))
-		todays_sessions.append((event["employer"], event["start_time"], event["end_time"], event["id"]))
+for event in uw.infosessions():    
+    if "CANCELLED" in event["employer"].upper():
+        continue
+    if event["date"] == todaysDate:        
+        todays_sessions.append(
+            (event["employer"], event["start_time"], event["end_time"], event["id"]))
 
 
 '''
@@ -110,7 +107,8 @@ print "\n"
 message = ""
 
 for session in todays_sessions:
-	message = message + session[0] + " at " + session[1] + " ends at " + session[2] + "\n"
+    message = message + session[0] + " at " + \
+        session[1] + " ends at " + session[2] + "\n"
 
 botMessage(message)
 
@@ -121,9 +119,3 @@ botMessage(message)
 #  			print session[0] + " starts at: " + session[1] + " and ends at " + session[2] + "."
 #  			print "\n"
 #  			break
-
-			
-
-
-
-
