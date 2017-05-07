@@ -18,7 +18,7 @@ telegramChatId = 130724919
 
 def botMessage(message):
     # Telegram Bot Authorization Token
-    bot = telegram.Bot(apikeys.getTelegramBotKey())
+    bot = telegram.Bot(apikeys.TelegramBotKey)
 
     # get the first pending update_id, this is so we can skip over it in case
     # we get an "Unauthorized" exception.
@@ -51,7 +51,7 @@ def echo(bot, update_id, message):
     return update_id
 
 
-API_KEY = apikeys.getUWApiKey()
+API_KEY = apikeys.UWApiKey
 uw = UWaterlooAPI(api_key=API_KEY)
 
 
