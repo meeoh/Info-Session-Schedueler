@@ -18,7 +18,7 @@ TODO: <br>
 
 ## Usage
 Create a telegram bot and get the bot http access key<br>
-Set the api keys in apikeys.py<br>
+Set the api keys in apikeys.py (change apikeysTEMPLATE.py to apikeysTEMPLATE)<br>
 Run `pip install -r requirements.txt` to install the proper dependencies<br>
 ~~Then run python schedule-maker.py and follow the instructions<br>~~
 Find your chat id with the bot by running `find_id.py` and messaging the bot<br>
