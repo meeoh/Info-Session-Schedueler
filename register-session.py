@@ -55,6 +55,10 @@ def echo(bot, update_id, message):
 		print("EXCEPTION")
     else:
         bot.sendMessage(chat_id=telegramChatId, text="No sessions today")
+	try:
+		api.PostUpdate("No sessions today")
+	except:
+		print("EXCEPTION")
     return update_id
 
 
