@@ -18,10 +18,10 @@ TODO: <br>
 
 ## Usage
 Create a telegram bot and get the bot http access key<br>
-Set the api keys in apikeys.py<br>
+Set the api keys in apikeys.py (change apikeysTEMPLATE.py to apikeysTEMPLATE)<br>
 Run `pip install -r requirements.txt` to install the proper dependencies<br>
 ~~Then run python schedule-maker.py and follow the instructions<br>~~
 Find your chat id with the bot by running `find_id.py` and messaging the bot<br>
 Set your chat id on line 16 of `register-session.py`<br>
 ~~Set the location of sched.txt (created from `schedule-maker.py`) on line 83 of `register-session.py`<br>~~
-Finally, run `crontab -e` and create the appropriate job to run register-session.py at your preferred time
+Finally, run `crontab -e` and create the appropriate job to run register-session.py at your preferred time (A sample cronfile exists in the repo that messages every day at 9am)
