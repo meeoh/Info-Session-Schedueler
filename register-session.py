@@ -46,19 +46,21 @@ def botMessage(message):
 
 
 def echo(bot, update_id, message):
+    api = twitter.Api(consumer_key=twitterkeys.consumerkey, consumer_secret=twitterkeys.consumersecret, access_token_key=twitterkeys.accesstokenkey, access_token_secret=twitterkeys.accesstokensecret)
     if message:
         bot.sendMessage(chat_id=telegramChatId, text=message)
-	api = twitter.Api(consumer_key=twitterkeys.consumerkey, consumer_secret=twitterkeys.consumersecret, access_token_key=twitterkeys.accesstokenkey, access_token_secret=twitterkeys.accesstokensecret)
 	try:
 		api.PostUpdate(message)
-	except:
-		print("EXCEPTION")
+	except Exception as e:
+		print("EXCEPTION:")
+		print(e)
     else:
         bot.sendMessage(chat_id=telegramChatId, text="No sessions today")
 	try:
 		api.PostUpdate("No sessions today")
-	except:
+	except Exception as e:
 		print("EXCEPTION")
+		print(e)
     return update_id
 
 
