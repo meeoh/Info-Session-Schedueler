@@ -6,6 +6,8 @@ import apikeys
 import sys
 import logging
 import telegram
+import twitter
+import twitterkeys
 from time import sleep
 
 try:
@@ -46,6 +48,11 @@ def botMessage(message):
 def echo(bot, update_id, message):
     if message:
         bot.sendMessage(chat_id=telegramChatId, text=message)
+	api = twitter.Api(consumer_key=twitterkeys.consumerkey, consumer_secret=twitterkeys.consumersecret, access_token_key=twitterkeys.accesstokenkey, access_token_secret=twitterkeys.accesstokensecret)
+	try:
+		api.PostUpdate(message)
+	except:
+		print("EXCEPTION")
     else:
         bot.sendMessage(chat_id=telegramChatId, text="No sessions today")
     return update_id

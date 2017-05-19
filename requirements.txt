@@ -1,3 +1,4 @@
 uwaterlooapi
 requests
 python-telegram-bot
+python-twitter
