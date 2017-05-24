@@ -50,7 +50,7 @@ def echo(bot, update_id, message):
     if message:
         bot.sendMessage(chat_id=telegramChatId, text=message)
 	try:
-		api.PostUpdate(message)
+		api.PostUpdates(message)
 	except Exception as e:
 		print("EXCEPTION:")
 		print(e)
